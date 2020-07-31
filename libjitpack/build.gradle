@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.LLhon'
-version='1.0.1'
+version='1.0.2'
 
 android {
   compileSdkVersion 29
@@ -23,10 +23,18 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
+
+  repositories {
+    jcenter()
+    flatDir {
+      dirs 'libs'
+    }
+  }
 }
 
 dependencies {
   implementation fileTree(dir: "libs", include: ["*.jar"])
+  implementation fileTree(dir: "libs", include: ["*.aar"])
   implementation 'androidx.appcompat:appcompat:1.1.0'
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'androidx.test.ext:junit:1.1.1'
